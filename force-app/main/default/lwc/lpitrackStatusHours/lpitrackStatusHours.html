@@ -1,0 +1,20 @@
+<template>
+    <lightning-card class="status-clock">
+        <h3 class="clock-header p-l-small slds-p-bottom--none"> 
+        <lightning-icon icon-name='action:defer' alternative-text='defer' size='small' title='defer'></lightning-icon> Processing Time</h3>
+        <div lwc:if={currentphase}>
+            <h2 class=" heading bold-16 p-t-xms p-l-small">{currentphase} Phase </h2>
+        </div>
+        <div class="slds-card slds-p-around_medium ">
+            <div lwc:if={renderSection}>{currentphase} Phase </div>
+            <div class="timer bold-16 p-b-small">{timer}</div>
+            <ul>
+                <template for:each={statusList} for:item="item">
+                    <li key={item.status}>
+                        <strong>{item.label}:</strong> {item.value}
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>
